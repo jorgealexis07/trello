@@ -1,6 +1,7 @@
 require('es6-promise').polyfill();
 var rest = require('needle');
 var objectAssign = require('object-assign');
+const Trello = require("./main");
 
 var minRequestDelay = 500;
 var maxRequestDelay = 7000;
