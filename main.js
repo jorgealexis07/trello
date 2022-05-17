@@ -1,7 +1,7 @@
 require('es6-promise').polyfill();
 var rest = require('needle');
 var objectAssign = require('object-assign');
-const Trello = require("./main");
+
 
 var minRequestDelay = 500;
 var maxRequestDelay = 7000;
@@ -135,10 +135,9 @@ Trello.prototype.addCard = function (name, description, listId, callback) {
     var query = this.createQuery();
     query.name = name;
     query.idList = listId;
-
     if (description !== null)
         query.desc = description;
-
+    console.log(makeRequest(rest.post, this.uri + '/1/cards', {query: query}, callback));
     return makeRequest(rest.post, this.uri + '/1/cards', {query: query}, callback);
 };
 
